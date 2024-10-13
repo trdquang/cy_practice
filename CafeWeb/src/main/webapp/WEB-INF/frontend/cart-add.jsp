@@ -30,7 +30,12 @@
     <div class="row mt-4">
         <div class="col-md-5">
             <div class="product-card text-center">
-                <img src="<%= request.getContextPath() %>/images/product.png" alt="Product Image" class="img-fluid mb-3" />
+<%--                <img src="<%= request.getContextPath() %>/images/product.png" alt="Product Image" class="img-fluid mb-3" />--%>
+                <img id="productImage"
+                     src="${pageContext.request.contextPath}/uploads/${product.image != null && !product.image.isEmpty() ? product.image : 'noimage.png'}"
+                     alt="Product Image"
+                     width="50px" height="50px"
+                >
                 <h5 class="mt-2 font-weight-bold">${product.productName}</h5>
                 <p class="text-muted">Line: ${product.productLine}</p>
                 <p class="font-weight-bold">Quantity: ${product.quantityInStock}</p>
@@ -75,6 +80,22 @@
                 document.getElementById('purchaseForm').submit();
             }
         });
+    }
+</script>
+<script>
+    function previewImage(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                // Cập nhật src của img để hiển thị ảnh mới
+                document.getElementById('productImage').src = e.target.result;
+            };
+            reader.readAsDataURL(file); // Đọc tệp dưới dạng URL
+        } else {
+            // Nếu không có tệp, có thể đặt lại src về ảnh cũ
+            document.getElementById('productImage').src = '${pageContext.request.contextPath}/uploads/${productResponse.image}';
+        }
     }
 </script>
 </body>

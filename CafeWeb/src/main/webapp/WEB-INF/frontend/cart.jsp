@@ -80,11 +80,16 @@
 <body>
 <jsp:include page="/WEB-INF/frontend/layout/header.jsp" />
 <div class="order-container">
-    <h2 class="text-center mb-4">Order History</h2>
+    <h2 class="text-center mb-4">Giỏ hàng</h2>
     <form action="buyCart" method="post">
         <c:forEach var="cart" items="${cartResponeList}">
             <div class="order-card">
-                <img src="https://picsum.photos/80?random=${cart.productCode}" alt="Product Image" class="order-image" />
+<%--                <img src="https://picsum.photos/80?random=${cart.productCode}" alt="Product Image" class="order-image" />--%>
+                <img id="productImage"
+                     src="${pageContext.request.contextPath}/uploads/${cart.image != null && !cart.image.isEmpty() ? cart.image : 'noimage.png'}"
+                     alt="Product Image"
+                     width="50px" height="50px"
+                >
                 <div class="order-details">
                     <div class="order-header">
                         <h5>${cart.productName}</h5>
@@ -108,5 +113,21 @@
     </form>
 </div>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<script>
+    function previewImage(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                // Cập nhật src của img để hiển thị ảnh mới
+                document.getElementById('productImage').src = e.target.result;
+            };
+            reader.readAsDataURL(file); // Đọc tệp dưới dạng URL
+        } else {
+            // Nếu không có tệp, có thể đặt lại src về ảnh cũ
+            document.getElementById('productImage').src = '${pageContext.request.contextPath}/uploads/${productResponse.image}';
+        }
+    }
+</script>
 </body>
 </html>

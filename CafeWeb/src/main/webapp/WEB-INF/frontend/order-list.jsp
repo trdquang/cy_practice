@@ -51,7 +51,12 @@
     <h2 class="text-center mb-4">Order History</h2>
     <c:forEach var="order" items="${orderResponses}">
         <div class="order-card">
-            <img src="https://picsum.photos/80?random=${order.productCode}" alt="Product Image" class="order-image" />
+<%--            <img src="https://picsum.photos/80?random=${order.productCode}" alt="Product Image" class="order-image" />--%>
+            <img id="productImage"
+                 src="${pageContext.request.contextPath}/uploads/${order.image != null && !order.image.isEmpty() ? order.image : 'noimage.png'}"
+                 alt="Product Image"
+                 width="50px" height="50px"
+            >
             <div class="order-details">
                 <div class="order-header">
                     <h5>${order.productName}</h5>
@@ -65,5 +70,22 @@
         </div>
     </c:forEach>
 </div>
+
+<script>
+    function previewImage(event) {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onload = function(e) {
+                // Cập nhật src của img để hiển thị ảnh mới
+                document.getElementById('productImage').src = e.target.result;
+            };
+            reader.readAsDataURL(file); // Đọc tệp dưới dạng URL
+        } else {
+            // Nếu không có tệp, có thể đặt lại src về ảnh cũ
+            document.getElementById('productImage').src = '${pageContext.request.contextPath}/uploads/${productResponse.image}';
+        }
+    }
+</script>
 </body>
 </html>

@@ -22,7 +22,7 @@ public class CartService implements ICartService {
     public List<CartRespone> getAll(CartSearch cartSearch) {
         List<CartRespone> cartResponeList = new ArrayList<>();
 //        String sql = "select * from cart where customerNumber = ?";
-        String sql = "SELECT ca.cartId, ca.customerNumber, ca.productCode,cus.customerName, prd.productName,ca.quantity, ca.price" +
+        String sql = "SELECT ca.cartId, ca.customerNumber, ca.productCode,cus.customerName, prd.productName,ca.quantity, ca.price, prd.image, prd.active" +
                 "  FROM cart ca " +
                 "join customers cus on ca.customerNumber = cus.customerNumber " +
                 "join products prd on ca.productCode = prd.productCode " +
@@ -40,8 +40,10 @@ public class CartService implements ICartService {
                  String productName = resultSet.getString("prd.productName");
                  int quantity = resultSet.getInt("ca.quantity");
                  double priceEach = resultSet.getDouble("ca.price");
+                 String image = resultSet.getString("prd.image");
+                 int active = resultSet.getInt("prd.active");
                  CartRespone cartRespone = new CartRespone(cartId, customerId, productCode, customerName, productName, quantity,
-                         priceEach);
+                         priceEach, image, active);
                  cartResponeList.add(cartRespone);
             }
 
@@ -92,7 +94,7 @@ public class CartService implements ICartService {
     @Override
     public CartRespone findById(Integer id) {
 //        CartRespone cartRespone = new CartRespone();
-        String sql = "SELECT ca.cartId, ca.customerNumber, ca.productCode,cus.customerName, prd.productName,ca.quantity, ca.price" +
+        String sql = "SELECT ca.cartId, ca.customerNumber, ca.productCode,cus.customerName, prd.productName,ca.quantity, ca.price, prd,image, prd.image" +
                 "  FROM cart ca " +
                 "join customers cus on ca.customerNumber = cus.customerNumber " +
                 "join products prd on ca.productCode = prd.productCode " +
@@ -109,8 +111,10 @@ public class CartService implements ICartService {
                 String productName = resultSet.getString("prd.productName");
                 int quantity = resultSet.getInt("ca.quantity");
                 double priceEach = resultSet.getDouble("ca.price");
+                String image = resultSet.getString("prd.image");
+                int active = resultSet.getInt("prd.active");
                 CartRespone cartRespone = new CartRespone(cartId, customerId, productCode, customerName, productName, quantity,
-                        priceEach);
+                        priceEach, image, active);
                 return cartRespone;
             }
         }catch (SQLException e){

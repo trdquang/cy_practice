@@ -13,4 +13,6 @@ public class OrderDetailResponse {
     private String customerName;
     private int quantityOrdered;
     private double priceEach;
+    private String image;
+    private int active;
 }

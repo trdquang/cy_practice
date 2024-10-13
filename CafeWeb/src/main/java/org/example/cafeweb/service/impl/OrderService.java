@@ -17,7 +17,7 @@ public class OrderService implements IOrderService {
     public List<OrderDetailResponse> getAll(OrderSearch orderSearch) {
         List<OrderDetailResponse> orderResponses = new ArrayList<>();
         String sql =
-                "SELECT odt.orderNumber, odt.productCode, odt.quantityOrdered, odt.priceEach, pd.productName " +
+                "SELECT odt.orderNumber, odt.productCode, odt.quantityOrdered, odt.priceEach, pd.productName, pd.image, pd.active " +
                         "FROM orderdetails odt " +
                         "JOIN products pd ON odt.productCode = pd.productCode " +
                         "WHERE odt.orderNumber IN ( " +
@@ -34,6 +34,9 @@ public class OrderService implements IOrderService {
                 int quantityOrdered = resultSet.getInt("quantityOrdered");
                 double priceEach = resultSet.getDouble("priceEach");
                 String productName = resultSet.getString("productName");
+                String image = resultSet.getString("pd.image");
+                int active = resultSet.getInt("pd.active");
+
 
                 OrderDetailResponse orderResponse = new OrderDetailResponse();
                 orderResponse.setCustomerName("Kelly s Gift Shop");
@@ -42,6 +45,8 @@ public class OrderService implements IOrderService {
                 orderResponse.setQuantityOrdered(quantityOrdered);
                 orderResponse.setPriceEach(priceEach);
                 orderResponse.setProductName(productName);
+                orderResponse.setImage(image);
+                orderResponse.setActive(active);
 
                 orderResponses.add(orderResponse);
             }

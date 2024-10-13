@@ -17,4 +17,6 @@ public class CartRespone {
     private String productName;
     private int quantity;
     private double priceEach;
+    private String image;
+    private int active;
 }
