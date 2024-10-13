@@ -43,10 +43,7 @@
       <label for="buyPrice" class="form-label">Giá Mua</label>
       <input type="number" class="form-control" id="buyPrice" name="buyPrice" step="0.01" value="${productResponse.buyPrice}"  required>
     </div>
-<%--    <div>--%>
-<%--      <label>Image:</label>--%>
-<%--      <img src="${pageContext.request.contextPath}/uploads/${productResponse.image}" alt="Product Image" style="width:100px;height:auto;">--%>
-<%--    </div>--%>
+
       <div class="mb-3">
         <label>Image:</label>
         <img id="productImage" src="${pageContext.request.contextPath}/uploads/${productResponse.image}" alt="Product Image" style="width:100px;height:auto;">

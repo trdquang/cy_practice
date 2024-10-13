@@ -65,13 +65,18 @@ public class ControllerProductEdit extends HttpServlet {
 
 //        ------------------xử lý ảnh
         Part filePart = req.getPart("file");
-        String fileName = filePart.getSubmittedFileName();
 
-        String uploadPath = getServletContext().getRealPath("") + "uploads";
-        File uploadDir = new File(uploadPath);
-        if (!uploadDir.exists()) uploadDir.mkdir(); // Tạo thư mục nếu không tồn tại
-        filePart.write(uploadPath + File.separator + fileName); // Lưu tệp
-        System.out.println("fileName = " + fileName);
+        String fileName = null;
+
+        if (filePart != null && filePart.getSize() > 0) {
+            fileName = filePart.getSubmittedFileName();
+
+            String uploadPath = getServletContext().getRealPath("") + "uploads";
+            File uploadDir = new File(uploadPath);
+            if (!uploadDir.exists()) uploadDir.mkdir(); // Tạo thư mục nếu không tồn tại
+            filePart.write(uploadPath + File.separator + fileName); // Lưu tệp
+//            System.out.println("fileName = " + fileName);
+        }
 //        -------------------------------------------------
 
         int quantityInStockStr = Integer.parseInt(req.getParameter("quantityInStock"));
