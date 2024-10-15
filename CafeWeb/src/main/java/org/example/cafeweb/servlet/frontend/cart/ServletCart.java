@@ -10,6 +10,7 @@ import org.example.cafeweb.util.PathUtil;
 import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -65,6 +66,34 @@ public class ServletCart extends HttpServlet {
         PrintWriter out = resp.getWriter();
         out.print(cartJsonString);
         out.flush();
+
+//        ----------------cookie
+//        Cookie[] cookies = req.getCookies();
+//        Cookie cartCookie = null;
+//
+//        if (cookies != null) {
+//            for (Cookie cookie : cookies) {
+//                // Kiểm tra tên cookie
+//                if ("cart".equals(cookie.getName())) {
+//                    String cartValue = cookie.getValue();
+//                    System.out.println("Current value of cart cookie: " + cartValue);
+//
+//                    // Thêm giá trị mới
+//                    cartValue += "yourNewValue"; // Thay "yourNewValue" bằng giá trị bạn muốn thêm
+//                    cartCookie = cookie;
+//                    cartCookie.setValue(cartValue);
+//                    break;
+//                }
+//            }
+//        }
+//
+//
+//
+//        if (cartCookie == null) {
+//            // Nếu không có cookie, tạo mới
+//            cartCookie = new Cookie("cart", "yourNewValue");
+//        }
+        //        ---------------------
 
 //        req.setAttribute("cartResponeList", cartResponeListPaging);
 //        req.setAttribute("currentPage", currentPage);

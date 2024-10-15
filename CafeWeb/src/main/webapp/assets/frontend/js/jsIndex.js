@@ -3,7 +3,8 @@ var currentPage =0;
 
 function select_option(id) {
     switch (id) {
-
+        case 0:
+            break;
         case 1:
             getAllCart();
             let contet_product = `
@@ -11,6 +12,8 @@ function select_option(id) {
                 </div>
             `;
             // document.getElementById('main_container').innerHTML = contet_product;
+            break;
+        case 2:
             break;
     }
 }
@@ -86,8 +89,8 @@ function showPageable(totalPages, currentPage, cartResponeList) {
             </div>
         `;
     });
-    if (document.getElementById("main_container") != null)
-        document.getElementById('main_container').innerHTML = content_product;
+    if (document.getElementById("main_product") != null)
+        document.getElementById('main_product').innerHTML = content_product;
 
 }
 
@@ -97,3 +100,17 @@ function changePage(page) {
     console.log("current is: " + page)
     getAllCart(); // Gọi lại hàm để lấy dữ liệu cho trang mới
 }
+
+// function loadMainProduct() {
+//     // Thực hiện một yêu cầu AJAX để lấy nội dung sản phẩm
+//     $.ajax({
+//         url: 'path/to/your/productPage.jsp', // Đường dẫn đến trang JSP của sản phẩm
+//         type: 'GET',
+//         success: function(data) {
+//             document.getElementById('main_product').innerHTML = data; // Cập nhật nội dung cho main_product
+//         },
+//         error: function(error) {
+//             console.error("Error loading products: ", error);
+//         }
+//     });
+// }
