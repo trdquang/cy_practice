@@ -7,8 +7,10 @@
     <title>Product List</title>
 <%--    <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>--%>
 
-    <link rel="stylesheet" href="assets/bootstrap_5/css/bootstrap.min.css">
+<%--    <link rel="stylesheet" href="assets/bootstrap_5/css/bootstrap.min.css">--%>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="assets/awesome_4/css/font-awesome.min.css">
+    <link rel="stylesheet" href="assets/frontend/css/cart.css">
 
     <style>
         .product-container {
@@ -37,7 +39,8 @@
 </head>
 <body>
 <jsp:include page="/WEB-INF/frontend/layout/header.jsp" />
-<div class="container">
+<div id="main_container">
+    <div class="container ">
 
     <div style="display: flex; align-items: center;" class="container mt-3">
         <div class="col-4">
@@ -104,7 +107,17 @@
         </c:forEach>
     </div>
 </div>
+</div>
+<div id="pagination">
+</div>
+<%--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>--%>
+<%--<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>--%>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+
+<script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+<script src="assets/frontend/js/jsIndex.js"></script>
 <script>
     function previewImage(event) {
         const file = event.target.files[0];

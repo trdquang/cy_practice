@@ -6,6 +6,8 @@
     <title>Order History</title>
     <link rel="stylesheet" href="assets/bootstrap_5/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/awesome_4/css/font-awesome.min.css">
+<%--    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/5.3.0/css/bootstrap.min.css">--%>
+
     <style>
         body {
             background-color: #f8f9fa;
@@ -48,6 +50,8 @@
         function confirmDelete(idCart) {
             if (confirm("Bạn có muốn xóa?")) {
                 window.location.href = '/cafe/deleteCart?idCart=' + idCart; // Thay đổi URL cho phù hợp
+            }else {
+                window.location.href = '/cafe/cart'
             }
         }
 
@@ -111,8 +115,50 @@
         <div id="totalAmount" class="text-center mb-4" style="font-weight: bold;">Tổng tiền: $0.00</div>
         <button type="submit" id="buyButton" class="btn btn-success" style="display: none;">Mua</button>
     </form>
+
+    <!-- Phần điều hướng phân trang -->
+    <h2>Current page = ${currentPage}</h2>
+    <h2>Total page = ${totalPages}</h2>
+
+    <nav aria-label="Page navigation example">
+        <ul class="pagination">
+<%--            <li class="page-item ${currentPage == 1 ? 'disabled' : ''}">--%>
+<%--                <a class="page-link" href="${currentPage > 1 ? '?page=' + (currentPage - 1) : '#'}">Previous</a>--%>
+<%--            </li>--%>
+<%--            <c:forEach var="i" begin="1" end="${totalPages}">--%>
+<%--                <li class="page-item"><a class="page-link" href="#">${i}</a></li>--%>
+<%--            </c:forEach>--%>
+            <c:forEach var="i" begin="1" end="${totalPages}">
+                <li class="page-item">
+<%--                    <a class="page-link ${i == currentPage ? 'font-weight-bold' : ''}" href="?currentPage=${i}">--%>
+<%--                            ${i}--%>
+<%--                    </a>--%>
+                        <a class="page-link ${i == currentPage ? 'bg-primary text-white' : ''}" href="?currentPage=${i}">
+                                ${i}
+                        </a>
+                </li>
+            </c:forEach>
+
+<%--            <li class="page-item ${currentPage == totalPages ? 'disabled' : ''}">--%>
+<%--                <a class="page-link" href="${currentPage < totalPages ? '?page=' + (currentPage + 1) : '#'}">Next</a>--%>
+<%--            </li>--%>
+        </ul>
+    </nav>
+<%--    <nav aria-label="Page navigation example">--%>
+<%--        <ul class="pagination">--%>
+<%--            <li class="page-item"><a class="page-link" href="#">Previous</a></li>--%>
+<%--            <li class="page-item"><a class="page-link" href="#">1</a></li>--%>
+<%--            <li class="page-item"><a class="page-link" href="#">2</a></li>--%>
+<%--            <li class="page-item"><a class="page-link" href="#">3</a></li>--%>
+<%--            <li class="page-item"><a class="page-link" href="#">Next</a></li>--%>
+<%--        </ul>--%>
+<%--    </nav>--%>
+
+
+
 </div>
-<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+<%--<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>--%>
+<script src="assets/bootstrap_5/js/bootstrap.bundle.min.js"></script>
 <script>
     function previewImage(event) {
         const file = event.target.files[0];

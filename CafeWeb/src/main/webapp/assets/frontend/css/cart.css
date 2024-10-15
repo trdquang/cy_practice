@@ -1,0 +1,16 @@
+.cart-item {
+    margin: 20px 0; /* Khoảng cách giữa các sản phẩm */
+}
+
+.cart-item-name {
+    font-size: 1.25rem; /* Kích thước chữ cho tên sản phẩm */
+}
+
+.cart-item-price {
+    font-size: 1rem; /* Kích thước chữ cho giá sản phẩm */
+    color: #6c757d; /* Màu sắc cho giá */
+}
+
+.text-center {
+    text-align: center; /* Căn giữa nội dung */
+}

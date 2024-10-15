@@ -1,5 +1,6 @@
 package org.example.cafeweb.servlet.frontend.cart;
 
+import org.example.cafeweb.dto.pageable.CartPageable;
 import org.example.cafeweb.dto.response.CartRespone;
 import org.example.cafeweb.search.CartSearch;
 import org.example.cafeweb.service.ICartService;
@@ -13,24 +14,64 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
+import java.io.PrintWriter;
 import java.util.List;
 import java.util.Scanner;
+import com.google.gson.Gson;
+
 
 @WebServlet(name = "cart", value = "/cart")
 public class ServletCart extends HttpServlet {
     private Scanner sc = new Scanner(System.in);
     private ICartService cartService = new CartService();
+    private Gson gson = new Gson();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        int currentPage = 1, totalPages = 1;
+
         CartSearch cartSearch = new CartSearch();
         cartSearch.setCustomerNumber(496);
         List<CartRespone> cartResponeList = cartService.getAll(cartSearch);
+        totalPages = (int) Math.ceil((double) cartResponeList.size() / PathUtil.numOfRecord);
 
-        req.setAttribute("cartResponeList", cartResponeList);
+        String currentPageParam = req.getParameter("currentPage");
+        if (currentPageParam != null && !currentPageParam.isEmpty()) {
+            try {
+                currentPage = Integer.parseInt(currentPageParam);
+            } catch (NumberFormatException e) {
+                currentPage = 1;
+            }
+        }
 
-        RequestDispatcher requestDispatcher = req.getRequestDispatcher(PathUtil.pathFE_jsp + "cart.jsp");
-        requestDispatcher.forward(req, resp);
+
+        if (currentPage < 1) {
+            currentPage = 1;
+        } else if (currentPage >= totalPages) {
+            currentPage = totalPages; // Đặt lại về trang cuối cùng nếu vượt quá
+        }
+
+        int fromIndex = (currentPage-1) * PathUtil.numOfRecord;
+        int toIndex = Math.min(fromIndex + PathUtil.numOfRecord, cartResponeList.size());
+
+        List<CartRespone> cartResponeListPaging = cartResponeList.subList(fromIndex, toIndex);
+
+        //---------------Chuyển jsson
+        CartPageable cartPageable = new CartPageable(totalPages, currentPage, "", cartResponeListPaging);
+        resp.setContentType("application/json");
+        String cartJsonString = this.gson.toJson(cartPageable);
+        System.out.println("test = " + cartJsonString);
+        resp.setCharacterEncoding("UTF-8");
+        PrintWriter out = resp.getWriter();
+        out.print(cartJsonString);
+        out.flush();
+
+//        req.setAttribute("cartResponeList", cartResponeListPaging);
+//        req.setAttribute("currentPage", currentPage);
+//        req.setAttribute("totalPages", totalPages);
+//
+//        RequestDispatcher requestDispatcher = req.getRequestDispatcher(PathUtil.pathFE_jsp + "cart.jsp");
+//        requestDispatcher.forward(req, resp);
     }
 
     @Override

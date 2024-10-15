@@ -9,8 +9,8 @@
 <html>
 <head>
     <title>Title</title>
-  <link rel="stylesheet" href="/assets/bootstrap_5/css/bootstrap.min.css">
-
+<%--  <link rel="stylesheet" href="/assets/bootstrap_5/css/bootstrap.min.css">--%>
+  <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
   <!-- Đường dẫn đến tệp CSS của Font Awesome -->
   <link rel="stylesheet" href="/assets/awesome_4/css/font-awesome.min.css">
 
@@ -40,19 +40,21 @@
         <div class="logo">
           <a href="#"><img src="uploads/product.png" alt="Logo" class="logo"></a>
         </div>
-        <nav class="navbar navbar-expand-lg">
-          <ul class="navbar-nav">
-            <li class="nav-item">
-              <a class="nav-link" href="http://localhost:8081/cafe/product">Trang chủ</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="http://localhost:8081/cafe/cart">Giỏ hàng</a>
-            </li>
-            <li class="nav-item">
-              <a class="nav-link" href="http://localhost:8081/cafe/order">Đơn hàng</a>
-            </li>
-          </ul>
-        </nav>
+
+        <h4   onclick="select_option(1)" >Giỏ hàng</h4>
+<%--        <nav class="navbar navbar-expand-lg">--%>
+<%--          <ul class="navbar-nav">--%>
+<%--            <li class="nav-item">--%>
+<%--              <a class="nav-link" href="http://localhost:8081/cafe/product">Trang chủ</a>--%>
+<%--            </li>--%>
+<%--            <li class="nav-item">--%>
+<%--              <a class="nav-link" href="http://localhost:8081/cafe/cart" >Giỏ hàng</a>--%>
+<%--            </li>--%>
+<%--            <li class="nav-item">--%>
+<%--              <a class="nav-link" href="http://localhost:8081/cafe/order">Đơn hàng</a>--%>
+<%--            </li>--%>
+<%--          </ul>--%>
+<%--        </nav>--%>
         <div class="header-icons ml-auto">
           <a href="#" title="User" style="font-size: 24px; color: blue;">
             <i class="fa fa-user" aria-hidden="true"></i>
@@ -66,5 +68,10 @@
       </div>
     </div>
   </header>
+  <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.3/dist/umd/popper.min.js"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.bundle.min.js"></script>
+
+  <script src="assets/frontend/js/jsIndex.js"></script>
 </body>
 </html>

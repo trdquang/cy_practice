@@ -59,6 +59,7 @@ public class ControllerProductAdd extends HttpServlet {
             File uploadDir = new File(uploadPath);
             if (!uploadDir.exists()) uploadDir.mkdir(); // Tạo thư mục nếu không tồn tại
             filePart.write(uploadPath + File.separator + fileName); // Lưu tệp
+            System.out.println("path = " + uploadPath);
         }
         //--------------------------------------------------------
 
