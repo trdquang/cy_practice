@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Chi Tiết Khách Sạn</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background-color: #f5f5f5;
+            /* Màu nền nhẹ */
+        }
+
+        header {
+            text-align: center;
+            font-size: 28px;
+            margin-bottom: 20px;
+        }
+
+        .container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* Căn giữa các khối */
+        }
+
+        .image-details {
+            width: 80%;
+            /* Chiếm 80% chiều rộng */
+            margin-bottom: 20px;
+            /* Khoảng cách dưới khối ảnh */
+            display: flex;
+            justify-content: center;
+            /* Căn giữa ảnh */
+            flex-wrap: wrap;
+            /* Cho phép ảnh xuống dòng nếu không đủ chỗ */
+        }
+
+        .image-details img {
+            width: 200px;
+            /* Chiều rộng ảnh */
+            height: 150px;
+            /* Chiều cao ảnh */
+            margin: 10px;
+            /* Khoảng cách giữa các ảnh */
+            border-radius: 10px;
+            /* Bo góc cho ảnh */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            /* Đổ bóng nhẹ cho ảnh */
+        }
+
+        .service-info {
+            display: flex;
+            justify-content: space-between;
+            /* Căn đều các phần tử */
+            width: 80%;
+            /* Chiếm 80% chiều rộng */
+            margin: 20px 0;
+            /* Khoảng cách trên và dưới */
+        }
+
+        .service-list {
+            font-family: 'Arial', sans-serif;
+            /* Chọn font chữ */
+            line-height: 1.6;
+            /* Cách dòng */
+        }
+
+        .service-list ul {
+            list-style: none;
+            /* Bỏ dấu đầu dòng mặc định */
+            padding: 0;
+            /* Bỏ khoảng cách bên trong */
+        }
+
+        .service-list li {
+            position: relative;
+            /* Để thêm icon */
+            padding-left: 25px;
+            /* Khoảng cách cho icon */
+            margin-bottom: 10px;
+            /* Khoảng cách giữa các dịch vụ */
+        }
+
+        .service-list li::before {
+            content: '✔';
+            /* Biểu tượng tích xanh */
+            color: #4CAF50;
+            /* Màu của biểu tượng */
+            position: absolute;
+            /* Định vị icon */
+            left: 0;
+            /* Đặt ở bên trái */
+            font-size: 18px;
+            /* Kích thước của icon */
+        }
+
+        .date-check {
+            width: 30%;
+            /* Chiếm 30% chiều rộng */
+            display: flex;
+            flex-direction: column;
+            /* Xếp chồng các ô chọn */
+            padding: 10px;
+            background-color: #fff;
+            /* Nền trắng cho khối chọn ngày */
+            border-radius: 10px;
+            /* Bo góc */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            /* Đổ bóng nhẹ */
+        }
+
+        .date-check input {
+            margin: 5px 0;
+            /* Khoảng cách giữa các ô chọn */
+            padding: 8px;
+            /* Khoảng cách bên trong */
+            border: 1px solid #ccc;
+            /* Đường viền màu xám */
+            border-radius: 5px;
+            /* Bo góc */
+        }
+
+        .total-price {
+            margin-top: 10px;
+            /* Khoảng cách trên */
+            font-weight: bold;
+            /* Làm cho giá nổi bật */
+            text-align: center;
+            /* Căn giữa */
+        }
+
+        .book-button {
+            padding: 10px 20px;
+            /* Khoảng cách bên trong nút */
+            background-color: #4CAF50;
+            /* Màu nền nút */
+            color: white;
+            /* Màu chữ nút */
+            border: none;
+            /* Bỏ viền */
+            border-radius: 5px;
+            /* Bo góc cho nút */
+            cursor: pointer;
+            /* Con trỏ khi hover */
+            margin-top: 15px;
+            /* Khoảng cách trên nút */
+            width: 100%;
+            /* Chiếm 100% chiều rộng */
+        }
+
+        .book-button:hover {
+            background-color: #45a049;
+            /* Màu nền khi hover */
+        }
+    </style>
+</head>
+
+<body>
+    <header>Chi Tiết Khách Sạn</header>
+    <div class="container">
+        <div class="image-details">
+            <img src="/images/hotel1.jpg" alt="Khách Sạn 1">
+            <img src="/images/hotel2.jpg" alt="Khách Sạn 2">
+            <img src="/images/hotel3.jpg" alt="Khách Sạn 3">
+        </div>
+        <div class="service-info">
+            <div class="service-list">
+                <h3>Dịch Vụ</h3>
+                <ul>
+                    <li>Wifi miễn phí</li>
+                    <li>Hồ bơi</li>
+                    <li>Nhà hàng</li>
+                    <li>Gym</li>
+                </ul>
+            </div>
+            <div class="date-check">
+                <h3>Chọn Ngày</h3>
+                <input type="date" placeholder="Ngày Check-in" required>
+                <input type="date" placeholder="Ngày Check-out" required>
+                <div class="total-price">Tổng Tiền: 1,500,000 VNĐ</div>
+                <button class="book-button">Đặt Phòng</button>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

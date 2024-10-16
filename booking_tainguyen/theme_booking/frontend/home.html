@@ -1,0 +1,241 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+
+    <style>
+        body,
+        html {
+            margin: 0;
+            height: 100%;
+            font-family: Arial, sans-serif;
+        }
+
+        header {
+            background-color: #4CAF50;
+            color: white;
+            text-align: center;
+            padding: 15px 0;
+            font-size: 24px;
+        }
+
+        .background {
+            background-image: url('/images/background_home.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 700px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .search-container {
+            display: flex;
+            gap: 10px;
+        }
+
+        input[type="text"] {
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            width: 200px;
+            /* Thay đổi kích thước ô nhập liệu */
+        }
+
+        .button {
+            padding: 10px 20px;
+            border: none;
+            border-radius: 5px;
+            background-color: #4CAF50;
+            color: white;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        .button:hover {
+            background-color: #45a049;
+            /* Hiệu ứng hover */
+        }
+
+        .membership {
+            display: flex;
+            justify-content: space-between;
+            /* Căn đều giữa text và hình */
+            align-items: center;
+            /* Căn giữa theo chiều dọc */
+            margin: 20px 0;
+            padding: 20px;
+            background-color: #f9f9f9;
+            /* Màu nền */
+            border-radius: 5px;
+            /* Bo góc */
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            /* Đổ bóng */
+        }
+
+        .membership-text {
+            text-align: center;
+            flex: 1;
+            /* Chiếm 1 phần */
+            margin-right: 20px;
+            /* Khoảng cách giữa text và hình */
+        }
+
+        .membership-image {
+            flex: 1;
+            /* Chiếm 1 phần */
+        }
+
+        .membership-image img {
+            border-radius: 5px;
+            /* Bo góc cho hình ảnh */
+        }
+
+        .carousel {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin: auto;
+            overflow: hidden;
+            border-radius: 5px;
+        }
+
+        .carousel-images {
+            display: flex;
+            transition: transform 0.5s ease;
+            width: 100%;
+        }
+
+        .carousel-images img {
+            width: 100%;
+            height: auto;
+            flex-shrink: 0;
+            border-radius: 5px;
+        }
+
+        .carousel-button {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background-color: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            cursor: pointer;
+            padding: 10px;
+            border-radius: 5px;
+            z-index: 10;
+        }
+
+        .prev {
+            left: 10px;
+        }
+
+        .next {
+            right: 10px;
+        }
+
+        .faq {
+            width: 80%;
+            color: #000;
+            /* Màu chữ đen cho toàn bộ phần FAQ */
+            padding: 20px;
+            /* Khoảng cách bên trong */
+            margin: 20px auto;
+            /* Khoảng cách bên ngoài */
+        }
+
+        .faq h3 {
+            text-align: center;
+            /* Căn giữa tiêu đề */
+            margin-bottom: 15px;
+            /* Khoảng cách dưới tiêu đề */
+        }
+
+        .faq-item {
+            background-color: black;
+            /* Nền sáng cho từng ô */
+            border: 2px solid #4CAF50;
+            /* Đường viền màu xanh */
+            border-radius: 5px;
+            /* Bo góc cho viền */
+            padding: 15px;
+            /* Khoảng cách bên trong ô */
+            margin: 10px 0;
+            /* Khoảng cách giữa các ô */
+        }
+
+        
+        
+    </style>
+</head>
+
+<body>
+    <header>Inser header here</header>
+    <div class="background">
+        <div class="search-container">
+            <input type="text" placeholder="Địa điểm hiện tại">
+            <div class="date-picker">
+                <input type="datetime-local" id="date" placeholder="Chọn thời gian">
+            </div>
+            
+
+            <input type="text" placeholder="Tên khách sạn">
+        </div>
+    </div>
+    <div class="membership">
+        <div class="membership-text">
+            Trở thành thành viên<br>
+            Nhận các ưu đãi của chúng tôi<br>
+            <button class="button">Tham gia ngay</button>
+        </div>
+        <div class="membership-image">
+            <img src="/images/travel.jpg" alt="Hình ảnh du lịch" width="200px" height="200px">
+        </div>
+    </div>
+
+
+    <div class="carousel">
+        <h4 style="text-align: center;">Khách sạn của chúng tôi</h4>
+        <div class="carousel-images">
+            <img src="/images/hotel.jpg" alt="Địa điểm 1">
+            <img src="/images/hotel.jpg" alt="Địa điểm 2">
+            <img src="/images/hotel.jpg" alt="Địa điểm 3">
+            <img src="/images/hotel.jpg" alt="Địa điểm 4">
+            <img src="/images/hotel.jpg" alt="Địa điểm 5">
+        </div>
+        <button class="carousel-button prev" onclick="moveSlide(-1)">&#10094;</button>
+        <button class="carousel-button next" onclick="moveSlide(1)">&#10095;</button>
+    </div>
+
+    <div class="faq">
+        <h3>Câu hỏi thường gặp</h3>
+        <div class="faq-item">
+            <p style="color: white;"><strong>Câu hỏi 1:</strong> Nội dung câu hỏi 1?</p>
+        </div>
+        <div class="faq-item">
+            <p style="color: white;"><strong>Câu hỏi 2:</strong> Nội dung câu hỏi 2?</p>
+        </div>
+    </div>
+
+
+
+
+    <script>
+        let currentIndex = 0;
+
+        function moveSlide(direction) {
+            const images = document.querySelector('.carousel-images');
+            const totalImages = images.children.length;
+
+            currentIndex = (currentIndex + direction + totalImages) % totalImages; // Giữ chỉ số trong phạm vi
+            const offset = -currentIndex * 100; // Tính toán vị trí
+
+            images.style.transform = `translateX(${offset}%)`;
+        }
+    </script>
+</body>
+
+</html>
