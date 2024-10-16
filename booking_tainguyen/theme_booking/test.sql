@@ -1,0 +1,2 @@
+ALTER TABLE `rating`
+MODIFY `idRating` int NOT NULL AUTO_INCREMENT;

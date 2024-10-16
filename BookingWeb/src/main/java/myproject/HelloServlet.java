@@ -1,4 +1,4 @@
-package org.example.bookingweb;
+package myproject;
 
 import java.io.*;
 import javax.servlet.http.*;
