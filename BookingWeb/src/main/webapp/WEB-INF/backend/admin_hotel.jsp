@@ -10,23 +10,14 @@
 
 <body>
 <div class="container">
-<%--    <div class="navbar">--%>
-<%--        <h5 style="text-align: center;">Quản lý </h5>--%>
-<%--        <button style="margin: 0; background-color: #f0f0f0;">Tổng quan</button>--%>
-<%--        <button style="margin: 0; background-color: #ddd;">Quản lý khách sạn</button>--%>
-<%--        <button style="margin: 0; background-color: #f0f0f0;">Quản lý phòng</button>--%>
-<%--        <button style="margin: 0; background-color: #ddd;">Quản lý đơn đặt</button>--%>
-<%--        <button style="margin: 0; background-color: #f0f0f0;">Quản lý đánh giá</button>--%>
-<%--    </div>--%>
-
     <jsp:include page="/WEB-INF/backend/layout/navbar.jsp" />
-
     <div class="main">
         <div class="search-container">
             <input type="text" placeholder="Tìm kiếm theo tên khách sạn">
             <button>Tìm kiếm</button>
         </div>
 
+        <%--   Thêm sản phẩm     ------------%>
         <div style="text-align: right;">
             <a href="" style="background-color: #45a049; border-radius: 5px;
                 color: white; padding: 10px; text-decoration: none;">

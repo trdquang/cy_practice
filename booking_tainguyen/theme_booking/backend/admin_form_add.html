@@ -15,7 +15,6 @@
             justify-content: center;
             align-items: center;
             height: 100vh;
-            /* Đảm bảo căn giữa theo chiều dọc */
         }
 
         .form-container {
@@ -23,12 +22,21 @@
             padding: 20px;
             border-radius: 10px;
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-            width: 400px;
+            width: 70%;
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .form-column {
+            flex: 1;
+            padding: 10px;
+            margin: 10px; /* Giảm khoảng cách giữa các cột */
         }
 
         .form-container h2 {
             text-align: center;
             margin-bottom: 20px;
+            width: 100%;
         }
 
         .form-container label {
@@ -71,9 +79,9 @@
 </head>
 
 <body>
-    <div class="form-container">
+    <form class="form-container" action="/submit-hotel" method="POST">
         <h2>Thêm Khách Sạn</h2>
-        <form>
+        <div class="form-column">
             <label for="hotelName">Tên Khách Sạn:</label>
             <input type="text" id="hotelName" name="hotelName" required>
 
@@ -90,11 +98,28 @@
 
             <label for="hotelImage">Ảnh:</label>
             <input type="file" id="hotelImage" name="hotelImage" accept="image/*">
+        </div>
+
+        <div class="form-column">
+            <label for="province">Tỉnh:</label>
+            <select id="province" name="province" required>
+                <option value="">Chọn tỉnh</option>
+            </select>
+
+            <label for="district">Huyện:</label>
+            <select id="district" name="district" required>
+                <option value="">Chọn huyện</option>
+            </select>
+
+            <label for="commune">Xã:</label>
+            <select id="commune" name="commune" required>
+                <option value="">Chọn xã</option>
+            </select>
 
             <button type="submit" class="submit">Gửi</button>
             <button type="button" class="back" onclick="window.history.back();">Quay Lại</button>
-        </form>
-    </div>
+        </div>
+    </form>
 </body>
 
 </html>
