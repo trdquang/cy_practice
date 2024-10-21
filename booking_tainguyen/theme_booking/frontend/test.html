@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Khách Sạn</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        body {
+            background-color: #f5f5f5;
+            /* Màu nền nhẹ */
+            padding: 20px;
+            /* Khoảng cách bên trong */
+        }
+
+        .hotel_view_card {
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+            /* Đổ bóng nhẹ */
+            width: 70%;
+            margin: 20px auto;
+            /* Căn giữa thẻ */
+            display: flex;
+            padding: 15px;
+            /* align-items: center;   */
+        }
+
+        .hotel_view_card img {
+            border-radius: 10px;
+            margin-right: 15px;
+            width: 200px;
+            /* Chiều rộng cố định cho ảnh */
+            height: 200px;
+            /* Chiều cao cố định cho ảnh */
+            object-fit: cover;
+            /* Cắt ảnh theo tỷ lệ */
+        }
+    </style>
+</head>
+
+<body>
+    <header class="text-center mb-4">
+        <h2>Danh Sách Khách Sạn</h2>
+    </header>
+
+    <div class="form-group" style="width: 10%;">
+        <label for="selectHotel">Sắp xếp:</label>
+        <select class="form-control" id="selectHotel">
+            <option value="">Tên</option>
+            <option value="">Giá</option>
+            <option value="">Đánh giá</option>
+        </select>
+    </div>
+
+    <div class="hotel_view_card">
+        <img src="/images/hotel.jpg" alt="Hình ảnh khách sạn">
+        <div>
+            <div style="margin-top: auto;">
+                <div><strong>Tên khách sạn:</strong> Khách Sạn ABC</div>
+                <div><strong>Địa điểm:</strong> Thành phố XYZ</div>
+                <div><strong>Dịch vụ:</strong> Wifi, Hồ bơi, Spa</div>
+            </div>
+            <div style="margin-top: 100px;">
+                <div><strong>Giá:</strong> 1,000,000 VNĐ</div>
+            </div>
+        </div>
+
+        <!-- <div style="margin-left: auto; margin-top: auto;">
+            <button
+                style="margin-left: auto; margin-top: auto; width: 15%; height: 8%; border-radius: 10px; background-color: rgba(0, 0, 0, 0.767); color: white;">
+                Xem chi tiết
+            </button>
+            <button
+                style="margin-left: auto; margin-top: auto; width: 15%; height: 8%; border-radius: 10px; background-color: rgba(0, 0, 0, 0.767); color: white;">
+                Đặt
+            </button>
+        </div> -->
+
+        <div style="margin-left: auto; margin-top: auto; width: 25%; 
+        height: 8%; border-radius: 10px; display: flex; ">
+            <button style="background-color: rgb(195, 27, 27); color: #f5f5f5; border-radius: 20px; border: none; padding: 5px">
+                Xem chi tiết
+            </button>
+            <button style="margin-left: 20px ;background-color: rgb(175, 53, 197); color: #f5f5f5; border-radius: 20px; border: none; padding: 5px">
+                Đặt phòng
+            </button>
+        </div>
+        
+    </div>
+
+    <nav aria-label="Page navigation" style="display: flex; justify-content: center; margin-top: 20px;">
+        <ul class="pagination" style="display: flex; list-style-type: none; padding: 0;">
+            <li class="page-item">
+                <button class="page-link" aria-label="Previous">
+                    <span aria-hidden="true">&laquo; Prev</span>
+                </button>
+            </li>
+            <li class="page-item"><button class="page-link">1</button></li>
+            <li class="page-item"><button class="page-link">2</button></li>
+            <li class="page-item"><button class="page-link">3</button></li>
+            <li class="page-item"><button class="page-link">4</button></li>
+            <li class="page-item">
+                <button class="page-link" aria-label="Next">
+                    <span aria-hidden="true">Next &raquo;</span>
+                </button>
+            </li>
+        </ul>
+    </nav>
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+</body>
+
+</html>

@@ -5,102 +5,37 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Đăng Nhập</title>
+    <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
     <style>
         body {
             margin: 0;
             font-family: Arial, sans-serif;
         }
-
         .background {
             background-image: url('/images/background_home.jpg');
             background-size: cover;
             background-position: center;
             height: 700px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-        }
-
-        .login-form {
-            background-color: white;
-            /* Nền trắng cho form */
-            border-radius: 10px;
-            /* Bo góc cho form */
-            padding: 20px;
-            /* Khoảng cách bên trong */
-            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
-            /* Đổ bóng nhẹ */
-            width: 350px;
-            /* Chiều rộng cố định */
-            text-align: center;
-            /* Căn giữa nội dung */
-        }
-
-        input[type="email"],
-        input[type="password"] {
-            width: 100%;
-            /* Chiếm 100% chiều rộng */
-            padding: 10px;
-            /* Khoảng cách bên trong */
-            margin: 10px 0;
-            /* Khoảng cách trên và dưới */
-            border-radius: 5px;
-            /* Bo góc */
-            border: 1px solid #ccc;
-            /* Đường viền màu xám */
-        }
-
-        .login-button {
-            background-color: #4CAF50;
-            /* Màu nền nút */
-            color: white;
-            /* Màu chữ nút */
-            padding: 10px;
-            /* Khoảng cách bên trong nút */
-            border: none;
-            /* Bỏ viền */
-            border-radius: 5px;
-            /* Bo góc cho nút */
-            cursor: pointer;
-            /* Con trỏ khi hover */
-            margin-top: 10px;
-            /* Khoảng cách trên nút */
-        }
-
-        .login-button:hover {
-            background-color: #45a049;
-            /* Màu nền khi hover */
-        }
-
-        .nav-links {
-            margin-top: 15px;
-            /* Khoảng cách trên các liên kết */
-            font-size: 14px;
-            /* Kích thước chữ cho liên kết */
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            /* Bỏ gạch chân */
-            color: #4CAF50;
-            /* Màu chữ cho liên kết */
         }
     </style>
 </head>
 
 <body>
-    <header style="text-align: center; font-size: 24px; margin: 20px 0;">Đăng Nhập</header>
-    <div class="background">
-        <div class="login-form">
-            <h2>Đăng Nhập</h2>
-            <input style="width: 50%;" type="email" placeholder="Email" required>
-            <input style="width: 50%;" type="password" placeholder="Mật khẩu" required> <br>
-            <button class="login-button">Đăng Nhập</button>
-            <div class="nav-links">
-                <a href="#">Đăng ký tài khoản</a> | <a href="#">Quên mật khẩu?</a>
+    <header class="text-center display-4 my-4">Đăng Nhập</header>
+    <div class="background d-flex justify-content-center align-items-center">
+        <div class="login-form bg-white rounded shadow p-4" style="width: 350px;">
+            <h2 class="text-center">Đăng Nhập</h2>
+            <input class="form-control mb-3" type="email" placeholder="Email" required>
+            <input class="form-control mb-3" type="password" placeholder="Mật khẩu" required>
+            <button class="btn btn-success btn-block">Đăng Nhập</button>
+            <div class="text-center mt-3">
+                <a href="#" class="text-success">Đăng ký tài khoản</a> | <a href="#" class="text-success">Quên mật khẩu?</a>
             </div>
         </div>
     </div>
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.4/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>

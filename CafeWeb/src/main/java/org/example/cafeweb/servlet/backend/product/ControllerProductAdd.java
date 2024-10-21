@@ -6,6 +6,7 @@ import org.example.cafeweb.service.IOrderService;
 import org.example.cafeweb.service.IProductSerice;
 import org.example.cafeweb.service.impl.OrderService;
 import org.example.cafeweb.service.impl.ProductService;
+import org.example.cafeweb.util.FunctionUtil;
 import org.example.cafeweb.util.PathUtil;
 
 import javax.servlet.RequestDispatcher;
@@ -52,7 +53,7 @@ public class ControllerProductAdd extends HttpServlet {
         String fileName = null;
 
         if (filePart != null && filePart.getSize() > 0) {
-            fileName = filePart.getSubmittedFileName();
+            fileName = filePart.getSubmittedFileName() ;
 
             // Đường dẫn lưu tệp
             String uploadPath = getServletContext().getRealPath("") + "uploads";

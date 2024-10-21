@@ -4,112 +4,92 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Khách Sạn</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            font-family: Arial, sans-serif;
             background-color: #f5f5f5; /* Màu nền nhẹ */
-            margin: 0;
             padding: 20px; /* Khoảng cách bên trong */
         }
-
-        header {
-            text-align: center; /* Căn giữa header */
-            font-size: 24px; /* Kích thước chữ */
-            margin-bottom: 20px; /* Khoảng cách dưới header */
-        }
-
-        label {
-            font-weight: bold; /* Làm cho label đậm */
-            margin-right: 10px; /* Khoảng cách bên phải */
-        }
-
-        select {
-            padding: 5px; /* Khoảng cách bên trong */
-            border-radius: 5px; /* Bo góc */
-            border: 1px solid #ccc; /* Đường viền màu xám */
-        }
-
         .hotel_view_card {
-            background-color: #fff; /* Nền trắng cho thẻ khách sạn */
-            border-radius: 10px; /* Bo góc */
+            background-color: #fff;  
+            border-radius: 10px;  
             box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Đổ bóng nhẹ */
-            margin: 20px auto; /* Căn giữa với khoảng cách giữa các thẻ */
-            display: flex; /* Sử dụng Flexbox */
-            padding: 15px; /* Khoảng cách bên trong thẻ */
-            justify-content: space-between; /* Căn giữa giữa các phần tử */
-            width: 80%; /* Chiếm 80% chiều rộng màn hình */
-            align-items: center; /* Căn giữa theo chiều dọc */
+            width: 70%;  
+            margin: 20px auto;  /* Căn giữa thẻ */
+            display: flex;  
+            padding: 15px;  
+            align-items: center;  
         }
-
         .hotel_view_card img {
-            border-radius: 10px; /* Bo góc cho hình ảnh */
-            margin-right: 15px; /* Khoảng cách giữa hình và thông tin */
+            border-radius: 10px;  
+            margin-right: 15px;  
+            width: 200px; /* Chiều rộng cố định cho ảnh */
+            height: 200px; /* Chiều cao cố định cho ảnh */
+            object-fit: cover; /* Cắt ảnh theo tỷ lệ */
         }
-
-        .hotel_info {
-            display: flex;
-            flex-direction: column; /* Xếp chồng thông tin */
-            justify-content: flex-start; /* Căn trên cho phần mô tả */
-            flex-grow: 1; /* Cho phép chiếm không gian còn lại */
-        }
-
-        .hotel_info div {
-            margin: 5px 0; /* Khoảng cách giữa các thông tin */
-        }
-
-        .service {
-            font-size: 14px; /* Kích thước chữ cho dịch vụ */
-            color: #555; /* Màu chữ cho dịch vụ */
-        }
-
-        .price {
-            font-weight: bold; /* Làm cho giá đậm */
-        }
-
         .detail-button {
-            padding: 10px 15px; /* Khoảng cách bên trong nút */
-            border-radius: 5px; /* Bo góc cho nút */
-            background-color: #4CAF50; /* Màu nền nút */
-            color: white; /* Màu chữ nút */
-            border: none; /* Bỏ viền */
-            cursor: pointer; /* Con trỏ khi hover */
+            padding: 10px 15px;  
+            border-radius: 5px;  
+            background-color: #4CAF50;  
+            color: white;  
+            border: none;  
+            cursor: pointer;  
+            text-align: right;
         }
-
         .detail-button:hover {
             background-color: #45a049; /* Màu nền khi hover */
         }
     </style>
 </head>
 <body>
-    <header>Danh Sách Khách Sạn</header>
+    <header class="text-center mb-4">
+        <h2>Danh Sách Khách Sạn</h2>
+    </header>
 
-    <label for="selectHotel">Sắp xếp:</label>
-    <select name="" id="selectHotel">
-        <option value="">Tên</option>
-        <option value="">Giá</option>
-        <option value="">Đánh giá</option>
-    </select>
+    <div class="form-group" style="width: 10%;">
+        <label for="selectHotel">Sắp xếp:</label>
+        <select class="form-control" id="selectHotel">
+            <option value="">Tên</option>
+            <option value="">Giá</option>
+            <option value="">Đánh giá</option>
+        </select>
+    </div>
 
     <div class="hotel_view_card">
-        <img src="/images/hotel.jpg" alt="Hình ảnh khách sạn" width="200px" height="200px">
+        <img src="/images/hotel.jpg" alt="Hình ảnh khách sạn">
         <div class="hotel_info">
             <div><strong>Tên khách sạn:</strong> Khách Sạn ABC</div>
             <div><strong>Địa điểm:</strong> Thành phố XYZ</div>
-            <div class="service"><strong>Dịch vụ:</strong> Wifi, Hồ bơi, Spa</div>
-            <div class="price"><strong>Giá:</strong> 1,000,000 VNĐ</div>
+            <div><strong>Dịch vụ:</strong> Wifi, Hồ bơi, Spa</div>
+            <div><strong>Giá:</strong> 1,000,000 VNĐ</div>
         </div>
         <button class="detail-button">Xem chi tiết</button>
     </div>
 
     <div class="hotel_view_card">
-        <img src="/images/hotel.jpg" alt="Hình ảnh khách sạn" width="200px" height="200px">
+        <img src="/images/hotel.jpg" alt="Hình ảnh khách sạn">
         <div class="hotel_info">
-            <div><strong>Tên khách sạn:</strong> Khách Sạn DEF</div>
-            <div><strong>Địa điểm:</strong> Thành phố ABC</div>
-            <div class="service"><strong>Dịch vụ:</strong> Wifi, Nhà hàng, Gym</div>
-            <div class="price"><strong>Giá:</strong> 800,000 VNĐ</div>
+            <div><strong>Tên khách sạn:</strong> Khách Sạn ABC</div>
+            <div><strong>Địa điểm:</strong> Thành phố XYZ</div>
+            <div><strong>Dịch vụ:</strong> Wifi, Hồ bơi, Spa</div>
+            <div><strong>Giá:</strong> 1,000,000 VNĐ</div>
         </div>
         <button class="detail-button">Xem chi tiết</button>
     </div>
+
+    <div class="hotel_view_card">
+        <img src="/images/hotel.jpg" alt="Hình ảnh khách sạn">
+        <div class="hotel_info">
+            <div><strong>Tên khách sạn:</strong> Khách Sạn DEF</div>
+            <div><strong>Địa điểm:</strong> Thành phố ABC</div>
+            <div><strong>Dịch vụ:</strong> Wifi, Nhà hàng, Gym</div>
+            <div><strong>Giá:</strong> 800,000 VNĐ</div>
+        </div>
+        <button class="detail-button">Xem chi tiết</button>
+    </div>
+
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>

@@ -1,0 +1,44 @@
+/*html,*/
+/*body {*/
+/*    height: 100%;*/
+/*    margin: 0;*/
+/*}*/
+
+/*.header {*/
+/*    height: 8%;*/
+/*    background-color: black;*/
+/*    display: flex;*/
+/*    justify-content: space-between;*/
+/*    align-items: center;*/
+/*    color: white;*/
+/*    padding: 0 5%;*/
+/*}*/
+
+body {
+    height: 100%;
+    font-family: Arial, sans-serif;
+}
+
+header {
+    background-color: #4CAF50;
+    color: white;
+    text-align: center;
+    padding: 15px 0;
+    font-size: 24px;
+}
+
+.background {
+    /*background-image: url('/images/background_home.jpg');*/
+    /*background-image: url('/images/campus.jpg');*/
+    /*background-size: cover;*/
+    /*background-position: center;*/
+    height: 700px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.search-container {
+    display: flex;
+    gap: 10px;
+}

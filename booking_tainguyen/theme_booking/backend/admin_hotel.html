@@ -5,156 +5,59 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quản Lý Khách Sạn</title>
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 20px;
-            background-color: #f5f5f5;
-            display: flex;
-            /* Thay đổi để tránh tràn */
-        }
-
-        .container {
-            display: flex;
-            flex: 1;
-            /* Cho phép container chiếm toàn bộ không gian */
-            overflow: hidden;
-            /* Ngăn không cho tràn */
-        }
-
-        .navbar {
-            width: 15%;
-            background-color: #f0f0f0;
-            padding: 15px;
-            color: black;
-            height: 100vh;
-        }
-
-        .navbar h2 {
-            color: #333;
-        }
-
-        .navbar button {
-            width: 100%;
-            background-color: #ddd;
-            color: black;
-            border: none;
-            padding: 10px;
-            margin: 5px 0;
-            cursor: pointer;
-        }
-
-        .navbar button:hover {
-            background-color: #ccc;
-        }
-
-        .main {
-            width: 80%;
-            padding: 20px;
-            background-color: #fff;
-            margin-top: 20px;
-            /* Đẩy nội dung xuống */
-            overflow: auto;
-            /* Ngăn không cho tràn */
-        }
-
-        .search-container {
-            margin-bottom: 20px;
-        }
-
-        .search-container input {
-            padding: 10px;
-            width: 39%;
-            border: 1px solid #ccc;
-            border-radius: 5px;
-        }
-
-        .search-container button {
-            padding: 10px;
-            margin-left: 10px;
-            background-color: #4CAF50;
-            color: white;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-        }
-
-        .search-container button:hover {
-            background-color: #45a049;
-        }
-
-        table {
-            width: 100%;
-            border-collapse: collapse;
-            margin-top: 20px;
-        }
-
-        th,
-        td {
-            border: 1px solid #ccc;
-            padding: 10px;
-            text-align: left;
-        }
-
-        th {
-            background-color: #f2f2f2;
-        }
-
-        .pagination {
-            margin-top: 20px;
-            display: flex;
-            justify-content: center;
-        }
-
-        .pagination button {
-            margin: 0 5px;
-            padding: 10px;
-            border: none;
-            background-color: #4CAF50;
-            color: white;
-            cursor: pointer;
-        }
-
-        .pagination button:hover {
-            background-color: #45a049;
-        }
-
-    
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div class="navbar">
-            <h5 style="text-align: center;">Quản lý </h5>
-            <button style="margin: 0; background-color: #f0f0f0;">Tổng quan</button>
-            <button style="margin: 0; background-color: #ddd;">Quản lý khách sạn</button>
-            <button style="margin: 0; background-color: #f0f0f0;">Quản lý phòng</button>
-            <button style="margin: 0; background-color: #ddd;">Quản lý đơn đặt</button>
-            <button style="margin: 0; background-color: #f0f0f0;">Quản lý đánh giá</button>
+    <div class="container-fluid d-flex">
+        <!-- -------------------Nav bar (2) -->
+        <div class="col-2" style="margin-top: 150px; background-color: #f0f0f0;">
+            <!-- <div>Admin</div> -->
+            <div style="margin-top: 15px;">
+                <a class="btn btn-light btn-block" style="border: none; text-align: left;">Tổng quan</a>
+            </div>
+            <div style="margin-top: 15px;">
+                <a class="btn btn-outline-secondary btn-block" style="border: none; text-align: left">Quản lý khách
+                    sạn</a>
+            </div>
+            <div style="margin-top: 15px;">
+                <a class="btn btn-light btn-block" style="border: none; text-align: left">Quản lý phòng</a>
+            </div>
+            <div style="margin-top: 15px;">
+                <a class="btn btn-outline-secondary btn-block" style="border: none; text-align: left">Quản lý
+                    booking</a>
+            </div>
+            <div style="margin-top: 15px;">
+                <a class="btn btn-light btn-block" style="border: none; text-align: left">Quản lý rating</a>
+            </div>
         </div>
 
-        <div class="main">
-            <div class="search-container">
-                <input type="text" placeholder="Tìm kiếm theo tên khách sạn">
-                <button>Tìm kiếm</button>
+        <!-- <div class="col-1"></div> -->
+
+        <div class="col-10 main flex-fill bg-white ">
+
+            <!-- ---------------search------------ -->
+            <!-- <div class="search-container">
+                <input type="text" class="form-control d-inline-block" style="width: 39%; display: inline;"
+                    placeholder="Tìm kiếm theo tên khách sạn">
+                <button class="btn btn-success">Tìm kiếm</button>
+            </div> -->
+
+            <div class="text-right" style="margin-top: 100px;">
+                <a href="" class="btn btn-success">Thêm sản phẩm</a>
             </div>
 
-            <div style="text-align: right;">
-                <a href="" style="background-color: #45a049; border-radius: 5px; 
-                color: white; padding: 10px; text-decoration: none;">
-                    Thêm sản phẩm
-                </a>
-            </div>
-
-            <table>
-                <thead>
+            <!-- ---------------------table dữ liệu -->
+            <table class="table table-bordered">
+                <thead class="thead-light">
                     <tr>
-                        <th>ID</th>
-                        <th>Tên Khách Sạn</th>
-                        <th>Giá</th>
-                        <th>Hành Động</th>
+                        <th style="width: 10%;">ID</th>
+                        <th style="width: 20%;">Tên Khách Sạn</th>
+                        <th style="width: 45%;">Địa chỉ</th>
+                        <th style="width: 25%;">Action</th>
                     </tr>
                 </thead>
                 <tbody>
@@ -163,34 +66,36 @@
                         <td>Khách Sạn ABC</td>
                         <td>1,000,000 VNĐ</td>
                         <td>
-                            <button style="background-color: #6ca730; padding: 8px; border-radius: 5px; color: rgb(69, 24, 24);">Chỉnh Sửa</button>
-                            <button style="background-color: #f6e3b4; padding: 8px; border-radius: 5px; color: rgb(69, 24, 24)">Hoạt Động</button>
-                            <button style="background-color: #e2b1b1; padding: 8px; border-radius: 5px; color: rgb(69, 24, 24)">Ngừng Hoạt Động</button>
+                            <button class="btn btn-warning">Chỉnh Sửa</button>
+                            <button class="btn btn-info">Active</button>
+                            <button class="btn btn-danger">Hide</button>
                         </td>
                     </tr>
-                    <tr>
-                        <td>2</td>
-                        <td>Khách Sạn DEF</td>
-                        <td>800,000 VNĐ</td>
-                        <td>
-                            <button style="background-color: #6ca730; padding: 8px; border-radius: 5px; color: rgb(69, 24, 24)">Chỉnh Sửa</button>
-                            <button style="background-color: #f6e3b4; padding: 8px; border-radius: 5px; color: rgb(69, 24, 24)">Hoạt Động</button>
-                            <button style="background-color: #e2b1b1; padding: 8px; border-radius: 5px; color: rgb(69, 24, 24)">Ngừng Hoạt Động</button>
-                        </td>
-                    </tr>
-                    <!-- Thêm nhiều hàng nếu cần -->
                 </tbody>
             </table>
 
-            <div class="pagination">
-                <button>1</button>
-                <button>2</button>
-                <button>3</button>
-                <button>4</button>
-                <!-- Thêm các nút phân trang nếu cần -->
-            </div>
+            <nav aria-label="Page navigation" style="display: flex; justify-content: flex-end; margin-right: 40px;">
+                <ul class="pagination">
+                    <button class="page-link" aria-label="Previous">
+                        <span aria-hidden="true">&laquo; Prev</span>
+                    </button>
+                    <li class="page-item"><button class="page-link">1</button></li>
+                    <li class="page-item"><button class="page-link">2</button></li>
+                    <li class="page-item"><button class="page-link">3</button></li>
+                    <li class="page-item"><button class="page-link">4</button></li>
+                    <button class="page-link" aria-label="Next">
+                        <span aria-hidden="true">Next &raquo;</span>
+                    </button>
+                </ul>
+            </nav>
+
         </div>
     </div>
+
+    <!-- Bootstrap JS and dependencies -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.0.7/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 
 </html>

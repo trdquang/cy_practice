@@ -13,7 +13,7 @@
 
 <body>
 
-<form action="admin_hotel_add" method="post" class="form-container">
+<form action="admin_hotel_add" method="post" class="form-container" enctype="multipart/form-data">
 <%--    <div class="form-container">--%>
         <h2>Thêm Khách Sạn</h2>
         <div class="form-column">
