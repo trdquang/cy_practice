@@ -26,6 +26,7 @@ public class RoomService implements IRoomService {
         try (Connection connection = dbConnect.openConnectToDB();
              PreparedStatement preparedStatement = connection.prepareStatement(sql)) {
             preparedStatement.setString(1, "%" + roomSearch.getLocation() + "%");
+//            preparedStatement.setString(2, "%" + roomSearch.getActive());
 //            preparedStatement.setString(1, "%%");
 
             ResultSet resultSet = preparedStatement.executeQuery();
@@ -46,7 +47,7 @@ public class RoomService implements IRoomService {
                 RoomResponse roomResponse = new RoomResponse(idRoom, name, address, price1, price2, idHotel, nameHotel, image, active, createDate, updateDate, timePairList);
 
 //                roomResponseList.add(roomResponse);
-                if (checkRoomAvaliable(roomResponse, roomSearch.getTimePair()))
+                if (roomSearch.getTimePair().getStart() == null || checkRoomAvaliable(roomResponse, roomSearch.getTimePair()) )
                     roomResponseList.add(roomResponse);
             }
         } catch (SQLException e) {

@@ -53,10 +53,10 @@
                             <a href="http://localhost:8081/booking/admin_room_edit?id=${room.idRoom}" style="text-decoration: none">Chỉnh Sửa</a>
                         </button>
                         <button class="btn btn-info">
-                            <a href="http://localhost:8081/booking/admin_room_edit?id=${room.idRoom}&activeRoom=true" style="text-decoration: none">Active</a>
+                            <a href="http://localhost:8081/booking/admin_room_edit?id=${room.idRoom}&activeRoom=true" style="text-decoration: none; color: white">Active</a>
                         </button>
                         <button class="btn btn-danger">
-                            <a href="http://localhost:8081/booking/admin_room_edit?id=${room.idRoom}&activeRoom=false" style="text-decoration: none">Active</a>
+                            <a href="http://localhost:8081/booking/admin_room_edit?id=${room.idRoom}&activeRoom=false" style="text-decoration: none; color: white">InActive</a>
                         </button>
                     </td>
                 </tr>

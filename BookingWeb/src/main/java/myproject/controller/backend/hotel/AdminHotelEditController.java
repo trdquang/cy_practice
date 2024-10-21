@@ -44,7 +44,8 @@ public class AdminHotelEditController extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-
+        String id_raw = req.getParameter("id_hotel");
+        int id = Integer.parseInt(id_raw);
 
         String hotelName = req.getParameter("hotelName");
 //        String hotelImage = req.getParameter("hotelImage");
@@ -52,9 +53,11 @@ public class AdminHotelEditController extends HttpServlet {
         String district = locationService.getNameById(FunctionUtil.defaultStrToInt(req.getParameter("district")));
         String commune = locationService.getNameById(FunctionUtil.defaultStrToInt(req.getParameter("commune")));
 
+        String fileName = "";
 //        -------------------Xử lý ảnh
-        Part filePart = req.getPart("hotelImage");
-        String fileName = null;
+        Part filePart = req.getPart("roomImage");
+        String hotelImage = req.getParameter("image");
+//        String fileName = null;
 
         if (filePart != null && filePart.getSize() > 0) {
             fileName = FunctionUtil.nowDay() + filePart.getSubmittedFileName();
@@ -67,10 +70,12 @@ public class AdminHotelEditController extends HttpServlet {
                 uploadDir.mkdir(); // Tạo thư mục nếu không tồn tại
 
             filePart.write(uploadPath + File.separator + fileName);
-        }
+        }else
+            fileName = hotelImage;
 
-
-        HotelRequest hotelRequest = new HotelRequest(1, hotelName, province + ", " + district + ", " + commune, fileName);
+        HotelRequest hotelRequest = new HotelRequest(id, hotelName, province + ", " + district + ", " + commune, fileName);
+        System.out.println("it edit = " + hotelRequest.getIdHotel());
+        System.out.println("new name: " + hotelRequest.getNameHotel());
         hotelService.edit(hotelRequest);
 
         resp.sendRedirect("admin_hotel");

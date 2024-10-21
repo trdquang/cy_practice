@@ -24,6 +24,13 @@ public class HomeController extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
+        String anh1 = "21_10_2024_05_34_41phongdon.jpg";
+        String anh2 = "17_10_2024_14_39_16splendid.jpeg";
+        String anh3 = "21_10_2024_02_39_43mariot.jpg";
+        req.setAttribute("anh1", anh1);
+        req.setAttribute("anh2", anh2);
+        req.setAttribute("anh3", anh3);
+
         RequestDispatcher requestDispatcher = req.getRequestDispatcher(VariableUtil.pathFE_jsp + "home.jsp");
         requestDispatcher.forward(req, resp);
     }

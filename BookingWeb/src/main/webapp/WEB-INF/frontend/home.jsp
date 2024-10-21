@@ -62,13 +62,14 @@
 ">
     <div class="carousel-inner">
         <div class="carousel-item active">
-            <img class="d-block w-100" src="/images/background_home.jpeg" width="100%" height="400px" alt="First slide">
+<%--            <img class="d-block w-100" src="/images/background_home.jpeg" width="100%" height="400px" alt="First slide">--%>
+            <img class="d-block w-100" src="${pageContext.request.contextPath}/uploads/${anh1} " width="100%" height="400px" alt="First slide">
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="/images/campus.jpg" width="100%" height="400px" alt="Second slide">
+            <img class="d-block w-100" src="${pageContext.request.contextPath}/uploads/${anh2} " width="100%" height="400px" alt="First slide">
         </div>
         <div class="carousel-item">
-            <img class="d-block w-100" src="/images/hotel.jpg" width="100%" height="400px" alt="Third slide">
+            <img class="d-block w-100" src="${pageContext.request.contextPath}/uploads/${anh3} " width="100%" height="400px" alt="First slide">
         </div>
     </div>
     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">

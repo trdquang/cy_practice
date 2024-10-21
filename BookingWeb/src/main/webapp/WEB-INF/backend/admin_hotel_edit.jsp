@@ -13,11 +13,13 @@
 
 <body>
 
-<form action="admin_hotel_add" method="post" class="form-container" enctype="multipart/form-data">
+<form action="admin_hotel_edit" method="post" class="form-container" enctype="multipart/form-data">
 <%--    <div class="form-container">--%>
         <h2>Chỉnh sửa Khách Sạn</h2>
         <div class="form-column">
             <input type="hidden" name="id_hotel" value="${hotelRespone.idHotel}">
+            <input type="hidden" name="image" value="${hotelRespone.image}">
+
             <label for="hotelName">Tên Khách Sạn:</label>
             <input type="text" id="hotelName" name="hotelName" required value="${hotelRespone.nameHotel}">
 

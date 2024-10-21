@@ -2,6 +2,7 @@ package myproject.controller.backend.room;
 
 import myproject.dto.response.HotelRespone;
 import myproject.dto.response.RoomResponse;
+import myproject.entity.TimePair;
 import myproject.search.HotelSearch;
 import myproject.search.RoomSearch;
 import myproject.service.IHotelService;
@@ -20,6 +21,7 @@ import javax.servlet.http.HttpServletResponse;
 import java.io.IOException;
 import java.util.Collections;
 import java.util.Comparator;
+import java.util.Date;
 import java.util.List;
 
 @WebServlet(name = "admin_room", value = "/admin_room")
@@ -31,6 +33,8 @@ public class AdminRoomController extends HttpServlet {
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
         RoomSearch roomSearch = new RoomSearch();
         roomSearch.setLocation("");
+//        roomSearch.setTimePair(new TimePair(new Date(), new Date()));
+        roomSearch.setTimePair(new TimePair(null, new Date()));
         List<RoomResponse> roomResponseList = roomService.getAll(roomSearch);
 
         Collections.sort(roomResponseList, new Comparator<RoomResponse>() {

@@ -47,12 +47,12 @@
 
         <div style="margin-left: auto; margin-top: auto; width: 25%;
         height: 8%; border-radius: 10px; display: flex; ">
-            <button style="background-color: rgb(195, 27, 27); color: #f5f5f5; border-radius: 20px; border: none; padding: 5px">
+            <button style="background-color: black; color: white; border-radius: 20px; border: none; padding: 5px">
                 <a href="http://localhost:8081/booking/room_detail?idRoom=${room.idRoom}&startDate=${startDate}&endDate=${endDate}" style="text-decoration: none">Xem chi tiết</a>
             </button>
-            <button style="margin-left: 20px ;background-color: rgb(175, 53, 197); color: #f5f5f5; border-radius: 20px; border: none; padding: 5px">
-                Đặt phòng
-            </button>
+<%--            <button style="margin-left: 20px ;background-color: rgb(175, 53, 197); color: #f5f5f5; border-radius: 20px; border: none; padding: 5px">--%>
+<%--                Đặt phòng--%>
+<%--            </button>--%>
         </div>
 
     </div>

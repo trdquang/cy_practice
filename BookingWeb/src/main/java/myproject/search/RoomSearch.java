@@ -14,4 +14,5 @@ public class RoomSearch {
     private int page;
     private String location;
     private TimePair timePair;
+    private int active;
 }

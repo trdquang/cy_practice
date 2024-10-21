@@ -21,7 +21,7 @@
         <a href="http://localhost:8081/booking/admin_room" class="btn btn-light btn-block" style="border: none; text-align: left">Quản lý phòng</a>
     </div>
     <div style="margin-top: 15px;">
-        <a class="btn btn-outline-secondary btn-block" style="border: none; text-align: left">Quản lý
+        <a href="http://localhost:8081/booking/admin_booking" class="btn btn-outline-secondary btn-block" style="border: none; text-align: left">Quản lý
             booking</a>
     </div>
     <div style="margin-top: 15px;">

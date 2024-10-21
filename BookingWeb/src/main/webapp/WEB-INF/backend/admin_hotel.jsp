@@ -41,7 +41,7 @@
                 <tr>
                     <td>${status.index + 1}</td>
                     <td>
-                        <img src="${pageContext.request.contextPath}/uploads/${hotel.image} " alt="Hình nền" width="50px" height="50px">
+<%--                        <img src="${pageContext.request.contextPath}/uploads/${hotel.image} " alt="Hình nền" width="50px" height="50px">--%>
                             ${hotel.nameHotel}
                     </td>
                     <td>${hotel.nameAddress}</td>
@@ -49,8 +49,8 @@
                         <button class="btn btn-warning">
                             <a href="http://localhost:8081/booking/admin_hotel_edit?id=${hotel.idHotel}" style="text-decoration: none">Chỉnh Sửa</a>
                         </button>
-                        <button class="btn btn-info">Active</button>
-                        <button class="btn btn-danger">Hide</button>
+<%--                        <button class="btn btn-info">Active</button>--%>
+<%--                        <button class="btn btn-danger">Hide</button>--%>
                     </td>
                 </tr>
             </c:forEach>

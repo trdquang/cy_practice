@@ -74,6 +74,8 @@ public class HotelService implements IHotelService {
             preparedStatement.setString(3, hotelRequest.getImage());
             preparedStatement.setString(4, FunctionUtil.parseDateToString(new Date()));
             preparedStatement.setInt(5, hotelRequest.getIdHotel());
+            preparedStatement.executeUpdate();
+            System.out.println("edit okkk");
             return 1;
         }catch (SQLException e){
             System.out.println("Err when edit hotel: " + e);
