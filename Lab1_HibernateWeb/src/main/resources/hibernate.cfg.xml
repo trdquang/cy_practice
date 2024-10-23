@@ -19,5 +19,6 @@
         <mapping class="entity.User"/>
         <mapping class="entity.Product"/>
         <mapping class="entity.Category"/>
+        <mapping class="entity.Information"/>
     </session-factory>
 </hibernate-configuration>

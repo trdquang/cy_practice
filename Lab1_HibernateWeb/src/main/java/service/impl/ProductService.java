@@ -3,10 +3,12 @@ package service.impl;
 import dto.request.ProductRequest;
 import dto.response.ProductResp;
 import entity.Product;
+import repository.IInformationRepository;
 import repository.IProductRepository;
 import repository.impl.ProductRepository;
 import search.ProductSearch;
 import search.UserSearch;
+import service.IInformationService;
 import service.IProducrService;
 
 import java.util.List;
@@ -14,6 +16,7 @@ import java.util.stream.Collectors;
 
 public class ProductService implements IProducrService {
     private IProductRepository productRepository = new ProductRepository();
+    private IInformationService informationService = new InformationService();
 
     @Override
     public List<ProductResp> getAll(ProductSearch productSearch) {
@@ -41,6 +44,7 @@ public class ProductService implements IProducrService {
                 .name(product.getName())
                 .idCategory(product.getCategory().getId())
                 .categoryName(product.getCategory().getName())
+                .informationRespList(informationService.convertToResponeList(product.getInformationList()))
                 .build();
     }
 

@@ -2,17 +2,21 @@ package controller.backend;
 
 import com.google.gson.Gson;
 import dto.response.CategoryResp;
+import dto.response.InformationResp;
 import dto.response.ProductResp;
 import dto.response.UserResp;
 import repository.ICategoryRepository;
 import repository.impl.UserRepository;
 import search.CategorySearch;
+import search.InformationSearch;
 import search.ProductSearch;
 import search.UserSearch;
 import service.ICategoryService;
+import service.IInformationService;
 import service.IProducrService;
 import service.IUserService;
 import service.impl.CategoryService;
+import service.impl.InformationService;
 import service.impl.ProductService;
 import service.impl.UserService;
 
@@ -31,10 +35,12 @@ public class UserCtr extends HttpServlet {
 //    private UserRepository userRepo = new UserRepository();
     private IProducrService producrService = new ProductService();
     private ICategoryService categoryService = new CategoryService();
+    private IInformationService informationService = new InformationService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-        List<CategoryResp> userList = categoryService.getAll(new CategorySearch());
+//        List<InformationResp> userList = informationService.getAll(new InformationSearch());
+        List<ProductResp> userList = producrService.getAll(new ProductSearch());
 
         Gson gson = new Gson();
         String jsonString = gson.toJson(userList);

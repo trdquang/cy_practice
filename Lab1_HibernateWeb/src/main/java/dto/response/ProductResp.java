@@ -2,6 +2,8 @@ package dto.response;
 
 import lombok.*;
 
+import java.util.List;
+
 @Getter
 @Setter
 @AllArgsConstructor
@@ -13,4 +15,6 @@ public class ProductResp {
 
     private int idCategory;
     private String categoryName;
+
+    private List<InformationResp> informationRespList;
 }
