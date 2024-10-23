@@ -11,7 +11,12 @@ import java.util.Date;
 @Builder
 public class UserRequest {
     private int id;
-    private Date create_date;
-    private Date update_date;
-    private String fullname;
+    private String userName;
+    private String passWord;
+    private String fullName;
+    private int active;
+    private String avatar;
+    private String role;
+    private Date createDate;
+    private Date updateDate;
 }

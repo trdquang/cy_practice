@@ -320,7 +320,7 @@
 <script src="assets/backend/js/plugin/datatables/datatables.min.js"></script>
 
 <!-- Bootstrap Notify -->
-<script src="assets/backend/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>
+<%--<script src="assets/backend/js/plugin/bootstrap-notify/bootstrap-notify.min.js"></script>--%>
 
 <!-- jQuery Vector Maps -->
 <script src="assets/backend/js/plugin/jsvectormap/jsvectormap.min.js"></script>

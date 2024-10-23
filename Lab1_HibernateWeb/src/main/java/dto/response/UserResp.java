@@ -11,7 +11,13 @@ import java.util.Date;
 @Builder
 public class UserResp {
     private int id;
+    private String userName;
+    private String passWord;
+    private String fullName;
+    private int active;
+    private String avatar;
+    private String role;
     private Date createdate;
     private Date updatedate;
-    private String fullname;
+
 }

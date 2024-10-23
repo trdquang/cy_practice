@@ -8,6 +8,7 @@ import repository.impl.UserRepository;
 import search.UserSearch;
 import service.IUserService;
 
+import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -21,6 +22,11 @@ public class UserService  implements IUserService{
         return userList.stream()
                 .map(this::convertToRespone)
                 .collect(Collectors.toList());
+    }
+
+    @Override
+    public Long getTotalPage(UserSearch userSearch) {
+        return userRepo.getTotalPage(userSearch);
     }
 
     @Override
@@ -42,9 +48,14 @@ public class UserService  implements IUserService{
     public UserResp convertToRespone(User user) {
         return UserResp.builder()
                 .id(user.getId())
+                .userName(user.getUsername())
+                .passWord(user.getPassword())
+                .fullName(user.getFullname())
+                .active(user.getActive())
+                .avatar(user.getAvatar())
+                .role(user.getRole())
                 .createdate(user.getCreateDate())
                 .updatedate(user.getUpdateDate())
-                .fullname(user.getFullname())
                 .build();
     }
 
@@ -52,9 +63,14 @@ public class UserService  implements IUserService{
     public User convertToUser(UserRequest userRequest) {
         return User.builder() // Sử dụng User.builder()
                 .id(userRequest.getId())
-                .createDate(userRequest.getCreate_date())
-                .updateDate(userRequest.getUpdate_date())// Giả sử đây là Date
-                .fullname(userRequest.getFullname())
+                .username(userRequest.getUserName())
+                .password(userRequest.getPassWord())
+                .fullname(userRequest.getFullName())
+                .active(userRequest.getActive())
+                .avatar(userRequest.getAvatar())
+                .role(userRequest.getRole())
+                .createDate(userRequest.getCreateDate())
+                .updateDate(userRequest.getUpdateDate())
                 .build();
     }
 

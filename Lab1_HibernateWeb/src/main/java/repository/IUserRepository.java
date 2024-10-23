@@ -7,6 +7,8 @@ import java.util.List;
 
 public interface IUserRepository {
     List<User> getAll(UserSearch userSearch);
+    Long getTotalPage(UserSearch userSearch);
+
     User findById(int id);
 
     User add(User user);

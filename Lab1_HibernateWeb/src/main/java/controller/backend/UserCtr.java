@@ -19,7 +19,10 @@ import service.impl.CategoryService;
 import service.impl.InformationService;
 import service.impl.ProductService;
 import service.impl.UserService;
+import util.FunctionUtil;
+import util.VariableUtil;
 
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
@@ -32,24 +35,30 @@ import java.util.List;
 @WebServlet(name = "user", value = "/user")
 public class UserCtr extends HttpServlet {
     private IUserService userService = new UserService();
-//    private UserRepository userRepo = new UserRepository();
-    private IProducrService producrService = new ProductService();
-    private ICategoryService categoryService = new CategoryService();
-    private IInformationService informationService = new InformationService();
 
     @Override
     protected void doGet(HttpServletRequest req, HttpServletResponse resp) throws ServletException, IOException {
-//        List<InformationResp> userList = informationService.getAll(new InformationSearch());
-        List<ProductResp> userList = producrService.getAll(new ProductSearch());
+//
+//        Gson gson = new Gson();
+//        String jsonString = gson.toJson(userList);
+//        resp.setContentType("text/plain");
+//        resp.setCharacterEncoding("UTF-8");
+//        resp.getWriter().print(jsonString);
+        int page = Math.max(1, FunctionUtil.convertStrToInt(req.getParameter("page") ));
+//        System.out.println("page = " + page);
 
-        Gson gson = new Gson();
-        String jsonString = gson.toJson(userList);
-        resp.setContentType("text/plain");
-        resp.setCharacterEncoding("UTF-8");
-        resp.getWriter().print(jsonString);
+        UserSearch userSearch = new UserSearch();
+        userSearch.setPage(page);
+        userSearch.setLimit(VariableUtil.limitLine);
 
-//        RequestDispatcher requestDispatcher = req.getRequestDispatcher( VariableUtil.pathBeJsp + "user.jsp");
-//        requestDispatcher.forward(req, resp);
+        List<UserResp> userRespList = userService.getAll(userSearch);
+
+        req.setAttribute("userRespList", userRespList);
+        req.setAttribute("page", page);
+        req.setAttribute("totalPage",userService.getTotalPage(userSearch));
+
+        RequestDispatcher requestDispatcher = req.getRequestDispatcher( VariableUtil.pathBeJsp + "user.jsp");
+        requestDispatcher.forward(req, resp);
     }
 
     @Override

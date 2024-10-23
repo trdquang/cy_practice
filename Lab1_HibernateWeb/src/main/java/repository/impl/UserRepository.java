@@ -10,29 +10,42 @@ import util.HibernateUtils;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
+import java.sql.SQLException;
 import java.util.List;
 
 public class UserRepository implements IUserRepository {
     @Override
     public List<User> getAll(UserSearch userSearch) {
         try (Session session = HibernateUtils.getSessionFactory().openSession();){
-
-
             String hql = "FROM User ";
             Query query = session.createQuery(hql);
 
-            int startIndex = Math.max(userSearch.getPage()-1*userSearch.getLimit(), 0);
+            int startIndex = Math.max( (userSearch.getPage()-1) *userSearch.getLimit(), 0);
+//            System.out.printf("page = %2d, start index = %2d, limit = %2d", userSearch.getPage(), startIndex, userSearch.getLimit());
             query.setFirstResult(startIndex);
             query.setMaxResults(userSearch.getLimit());
             List <User> userList  = query.list();
 
-            System.out.println("find user ok");
+            System.out.println("find user ok(" + userList.size() + ")");
             return userList;
         }catch (Exception e){
             System.out.println("Err when get all user list: " + e);
         }
 
         return null;
+    }
+
+    @Override
+    public Long getTotalPage(UserSearch userSearch) {
+        try (Session session = HibernateUtils.getSessionFactory().openSession()){
+            Long count =  (long)session.createQuery("select count (u) from User u").uniqueResult();
+            Long result = (long) Math.ceil((count * 1.0)/userSearch.getLimit());
+            return result;
+        }catch (Exception e){
+            System.out.println("err when get all page user: " + e);
+        }
+
+        return 0L;
     }
 
     public List<User> getUserWithPagingAndOrdering(){

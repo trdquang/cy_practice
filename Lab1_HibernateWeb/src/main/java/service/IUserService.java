@@ -11,6 +11,7 @@ public interface IUserService {
 
     //------------tim kiem
     List<UserResp> getAll(UserSearch userSearch);
+    Long getTotalPage(UserSearch userSearch);
 
     UserResp convertToRespone(User user);
     User convertToUser(UserRequest userRequest);

@@ -1,3 +1,8 @@
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt" %>
+
+<%@ include file="/WEB-INF/variable.jsp" %>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 
 <!DOCTYPE html>
@@ -92,54 +97,75 @@
                                 </div>
                             </div>
                             <div class="card-body">
-                                <!-- Modal -->
+                                <!-- Modal thêm user -->
                                 <jsp:include page="/WEB-INF/backend/layout/modal_user_add.jsp"></jsp:include>
 
                                 <div class="table-responsive">
-                                    <table
-                                            id="add-row"
-                                            class="display table table-striped table-hover"
-                                    >
+                                    <table id="add-row" class="display table table-striped table-hover">
                                         <thead>
                                         <tr>
-                                            <th>Name</th>
-                                            <th>Position</th>
-                                            <th>Office</th>
+                                            <th>STT</th>
+                                            <th>Tên</th>
+                                            <th>Trạng thái</th>
+                                            <th>Role</th>
+                                            <th>Ngày tạo</th>
+                                            <th>Ngày cập nhật</th>
                                             <th style="width: 10%">Action</th>
                                         </tr>
                                         </thead>
-
                                         <tbody>
-                                        <tr>
-                                            <td>Garrett Winters</td>
-                                            <td>Accountant</td>
-                                            <td>Tokyo</td>
-                                            <td>
-                                                <div class="form-button-action">
-                                                    <button
-                                                            type="button"
-                                                            data-bs-toggle="tooltip"
-                                                            title=""
-                                                            class="btn btn-link btn-primary btn-lg"
-                                                            data-original-title="Edit Task"
-                                                    >
-                                                        <i class="fa fa-edit"></i>
-                                                    </button>
-                                                    <button
-                                                            type="button"
-                                                            data-bs-toggle="tooltip"
-                                                            title=""
-                                                            class="btn btn-link btn-danger"
-                                                            data-original-title="Remove"
-                                                    >
-                                                        <i class="fa fa-times"></i>
-                                                    </button>
-                                                </div>
-                                            </td>
-                                        </tr>
 
+                                        <c:forEach var="user" items="${userRespList}" varStatus="status">
+                                            <tr>
+                                                <td>${status.index + 1}</td>
+                                                <td>${user.fullName}</td>
+                                                <td>${user.active}</td>
+                                                <td>${user.role}</td>
+                                                <td><fmt:formatDate value="${user.createdate}"
+                                                                    pattern="dd/MM/yyyy"/></td>
+                                                <td><fmt:formatDate value="${user.updatedate}"
+                                                                    pattern="dd/MM/yyyy"></fmt:formatDate></td>
+                                                <td>
+                                                    <div class="form-button-action">
+                                                        <button type="button" data-bs-toggle="tooltip" title=""
+                                                                class="btn btn-link btn-primary btn-lg"
+                                                                data-original-title="Edit Task">
+                                                            <i class="fa fa-edit"></i>
+                                                        </button>
+                                                        <button type="button" data-bs-toggle="tooltip" title=""
+                                                                class="btn btn-link btn-danger"
+                                                                data-original-title="Remove">
+                                                            <i class="fa fa-times"></i>
+                                                        </button>
+                                                    </div>
+                                                </td>
+                                            </tr>
+                                        </c:forEach>
                                         </tbody>
                                     </table>
+
+                                    <!-----------------------------pagination---------------------->
+                                    <nav aria-label="Page navigation example">
+                                        <ul class="pagination justify-content-end">
+<%--                                            <li class="page-item ${page == 1?'disable':''}">--%>
+                                            <li class="page-item <c:if test="${page == 1}">disabled</c:if>">
+                                                <a class="page-link" href="${userUrl}?page=${page-1}" >Previous</a>
+                                            </li>
+
+                                            <c:forEach begin="1" end="${totalPage}" var="i">
+                                                <li class="page-item ${i == page ? 'active' : ''}">
+                                                    <a class="page-link" href="${userUrl}?page=${i}">${i}</a>
+                                                </li>
+                                            </c:forEach>
+
+                                            <li class="page-item <c:if test="${page == totalPage}">disabled</c:if>">
+                                                <a class="page-link" href="${userUrl}?page=${page+1}">Next</a>
+                                            </li>
+
+                                        </ul>
+                                    </nav>
+                                    <!-----------------------------pagination---------------------->
+
                                 </div>
                             </div>
                         </div>
@@ -160,11 +186,11 @@
 <!-- jQuery Scrollbar -->
 <script src="assets/backend/js/plugin/jquery-scrollbar/jquery.scrollbar.min.js"></script>
 <!-- Datatables -->
-<script src="assets/backend/js/plugin/datatables/datatables.min.js"></script>
+<%--<script src="assets/backend/js/plugin/datatables/datatables.min.js"></script>--%>
 <!-- Kaiadmin JS -->
 <script src="assets/backend/js/kaiadmin.min.js"></script>
 <!-- Kaiadmin DEMO methods, don't include it in your project! -->
-<script src="assets/backend/js/setting-demo2.js"></script>
+<%--<script src="assets/backend/js/setting-demo2.js"></script>--%>
 
 <script src="assets/backend/js/slidebar.js"></script>
 <script src="assets/backend/js/user.js"></script>
