@@ -14,12 +14,12 @@ public class UserRequest {
     private String username;
     private String password;
     private String fullname;
-    private String avatar;
-
-    private int active;
-    private String email;
-    private String role;
-
-    private Date create_date;
-    private Date update_date;
+//    private String avatar;
+//
+//    private int active;
+//    private String email;
+//    private String role;
+//
+//    private Date create_date;
+//    private Date update_date;
 }

@@ -4,6 +4,7 @@ import myproject.entity.User;
 import myproject.search.UserSearch;
 
 import java.util.List;
+import java.util.Optional;
 
 public interface IUserRepository {
     int count();

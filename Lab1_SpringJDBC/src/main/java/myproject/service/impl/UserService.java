@@ -12,6 +12,7 @@ import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 @Service
@@ -36,6 +37,16 @@ public class UserService implements IUserService {
     }
 
     @Override
+    public UserResponse getById(long id) {
+        return convertToResponse(userRepository.getById(id));
+    }
+
+    @Override
+    public int add(UserRequest userRequest) {
+        return userRepository.add(convertToUser(userRequest));
+    }
+
+    @Override
     public UserResponse convertToResponse(User user) {
         return UserResponse.builder()
                 .id(user.getId())
@@ -57,11 +68,11 @@ public class UserService implements IUserService {
                 .username(userRequest.getUsername())
                 .password(userRequest.getPassword())
                 .fullname(userRequest.getFullname())
-                .avatar(userRequest.getAvatar())
-                .email(userRequest.getEmail())
-                .active(userRequest.getActive())
-                .create_date(userRequest.getCreate_date())
-                .update_date(userRequest.getUpdate_date())
+//                .avatar(userRequest.getAvatar())
+//                .email(userRequest.getEmail())
+//                .active(userRequest.getActive())
+//                .create_date(userRequest.getCreate_date())
+//                .update_date(userRequest.getUpdate_date())
                 .build();
     }
 }
